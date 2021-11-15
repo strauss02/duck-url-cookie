@@ -1,6 +1,7 @@
 import './style.css'
 import axios from 'axios'
 import './modal.js'
+import './elements.js'
 // const baseURL = 'http://localhost:3000'
 const baseURL = window.location.href
 // TODO: DECIDE BASE URL BASED ON ENV
