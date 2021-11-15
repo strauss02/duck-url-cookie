@@ -3,8 +3,6 @@
 const express = require('express')
 // const app = new express()
 const router = express.Router()
-const urls = require('./urls.json')
-const fs = require('fs')
 const ApiError = require('./ApiError')
 const DBController = require('./DBController')
 

@@ -10,6 +10,7 @@ const cors = require('cors')
 
 const redirectRouter = require('./redirect-router')
 const shortifyRouter = require('./shortify-router')
+const newUserRouter = require('./new-user-router')
 const errorHandler = require('./error-handler')
 
 /** ***** General Middleware *********** */
@@ -24,6 +25,8 @@ app.use(express.static('public'))
 app.use('/', redirectRouter)
 
 app.post('/', shortifyRouter)
+
+app.use('/new-user', newUserRouter)
 
 /** ****** Error Handler ************ */
 
