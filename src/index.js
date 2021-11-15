@@ -1,5 +1,6 @@
 import './style.css'
 import axios from 'axios'
+import './modal.js'
 // const baseURL = 'http://localhost:3000'
 const baseURL = window.location.href
 // TODO: DECIDE BASE URL BASED ON ENV
@@ -9,12 +10,15 @@ const submitBtn = document.getElementById('submit-btn')
 const sampleText = document.querySelector('h3')
 const copyButton = document.getElementById('btn-copy-url')
 const alertBox = document.getElementById('alert-box')
-const newUrlsection = document.getElementById('new-url-container')
+// const newUrlsection = document.getElementById('new-url-container')
 const alertSection = document.getElementById('alert-container')
 const newUrlBox = document.getElementById('new-url')
+const logInButton = document.querySelector('.login-button')
+const LoginModal = document.querySelector('.login-modal-container')
 
 copyButton.addEventListener('click', handleCopy)
 submitBtn.addEventListener('click', handleSubmit)
+logInButton.addEventListener('click', handleLogInClick)
 
 async function handleSubmit(e) {
   try {
@@ -44,6 +48,10 @@ async function handleSubmit(e) {
 
 function handleCopy() {
   navigator.clipboard.writeText(newUrlBox.innerText)
+}
+
+function handleLogInClick() {
+  toggleVisibility(LoginModal, true)
 }
 
 function assertUrlFilled(url) {

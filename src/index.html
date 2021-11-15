@@ -7,6 +7,39 @@
   </head>
 
   <body>
+    <!-- Start Modal -->
+
+    <!-- first div is dark bg -->
+    <div class="login-modal-container">
+      <!-- this div is the modal box -->
+      <div class="modal-content-box">
+        <div class="top-row">
+          <button class="modal-login-button">Log In</button>
+          <button class="modal-signup-button">Sign Up</button>
+        </div>
+        <div class="alternating-modal-content">
+          <div class="hider modal-content-login">
+            Already an old Quacker? Welcome back!
+            <input id="signup-username" placeholder="username" type="text" />
+            <input id="signup-password" placeholder="password" type="text" />
+            <button class="login-user-button">Log In!</button>
+          </div>
+
+          <div class="modal-content-signup">
+            New to Duck URL? Come on in, create a new Quacky user!
+            <input id="signup-username" placeholder="username" type="text" />
+            <input id="signup-password" placeholder="password" type="text" />
+            <button class="create-user-button">Sign Up!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Modal -->
+    <div class="login-button-container">
+      <button class="login-button">Log In</button>
+    </div>
+
     <div id="logo-container">
       <img id="logo" src="./assets/duck.png" alt="" />
       <h1>Duck URL</h1>

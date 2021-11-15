@@ -1,3 +1,313 @@
-@font-face{font-family:"Dosis";src:url(f4fe0ac26c24e981d2c7.ttf)}@font-face{font-family:"DMSans";src:url(067ebd7ed3c947d82dc4.ttf)}@font-face{font-family:"Dongle";src:url(19d1ebf56b8a3ce35c14.ttf)}*{box-sizing:border-box;margin:0;padding:0}body{display:flex;flex-direction:column;justify-content:center;align-items:stretch;margin:2rem auto;background-color:#f5f5f5;font-family:"DMSans",Tahoma,Geneva,Verdana,sans-serif;width:70rem}#logo-container{width:100%;display:flex;justify-content:center;align-items:baseline;align-content:flex-start}#logo{width:10rem}#logo-container>h1{font-family:"Dosis","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;margin-left:1.2rem;font-size:6rem;background:#fcd41f;background:linear-gradient(56deg, #fcd41f 0%, #ffbb1b 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}#input-field-container{display:flex;justify-content:space-around;border-radius:20px;padding:2rem .3rem}input{padding:1rem .3rem;height:5rem;width:62%;background:linear-gradient(whitesmoke, whitesmoke) padding-box,linear-gradient(to right, #fcd41f, #ffbb1b) border-box;border-radius:50em;border:5px solid transparent;transition:.8s ease-out;box-shadow:0px 0px 20px 0px rgba(255,0,0,0)}input:focus{border-width:10px;width:65%;box-shadow:0px 0px 14px 0px #ffbb1b;outline:none;transition:.6s ease-out}input::-moz-placeholder{color:#bbb;font-family:DMSans;text-align:center;font-size:1.25rem;padding-left:0rem}input:-ms-input-placeholder{color:#bbb;font-family:DMSans;text-align:center;font-size:1.25rem;padding-left:0rem}input::placeholder{color:#bbb;font-family:DMSans;text-align:center;font-size:1.25rem;padding-left:0rem}input:hover{box-shadow:0px 0px 10px 0px #ffbb1b}input{color:#000;font-size:1.25rem;padding-left:1.25rem;font-family:DMSans}#submit-btn{font-family:"Dongle",Tahoma,Geneva,Verdana,sans-serif;border-radius:50em;background:linear-gradient(to right, #fcd41f, #ffbb1b);border:none;font-size:3.2rem;color:#f5f5f5;width:25%;box-shadow:0px 0px 14px 0px rgba(255,187,27,0);transition:.2s ease-out}#submit-btn:hover{box-shadow:0px 0px 14px 0px #ffbb1b;transition:.2s ease-out}#submit-btn:active{box-shadow:0px 0px 40px 0px #ffbb1b;transition:.2s ease-out;transform:translateY(5px)}#btn-copy-url{border:none;width:6rem;font-size:2rem;margin:0 2rem;font-family:"Dongle";background:linear-gradient(whitesmoke, whitesmoke) padding-box,linear-gradient(to right, #1fb6fc, #73d1b2) border-box;border-radius:1em;width:8rem;border:3px solid transparent;box-shadow:0px 0px 20px 0px rgba(93,255,247,0);transition:.7s ease}#btn-copy-url:hover{color:#3f3d41;box-shadow:0px 0px 20px 0px #5dfff7;transition:.3s ease}#btn-copy-url:active{color:#3f3d41;box-shadow:0px 0px 20px 0px #5dfff7;transition:.3s cubic-bezier(0.23, 1, 0.32, 1);transform:translateY(5px)}#alert-box{width:60%;margin:1rem auto;text-align:center;font-size:1.4rem;padding:.75rem;color:#353535;background:linear-gradient(whitesmoke, whitesmoke) padding-box,linear-gradient(69deg, #a5df92 0%, #6debc1 30%, #db6868 68%, #e89745 100%) border-box;background-size:500% 500%;transition:.8s ease-in-out;border-radius:50em;border:4px solid transparent}.success{background-position:0% 100% !important}.failure{background-position:90% 100% !important}#new-url-container{text-align:center;display:flex;align-items:center;justify-content:center;color:#242438;margin-bottom:3rem}#new-url{font-family:"DMSans";font-size:2.5rem;text-decoration:none;color:#2f2e33;background:linear-gradient(whitesmoke, whitesmoke) padding-box,linear-gradient(to right, #7cc0c8, #93acdb) border-box;border-bottom:4px solid transparent;transition:.4s ease}#new-url:hover{color:rgba(0,0,0,.431);cursor:pointer}#alert-container{text-align:center}.hider{display:none}
+/*!**************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/style.css ***!
+  \**************************************************************************************************************************************************/
+@font-face {
+  font-family: "Dosis";
+  src: url(f4fe0ac26c24e981d2c7.ttf);
+}
+@font-face {
+  font-family: "DMSans";
+  src: url(067ebd7ed3c947d82dc4.ttf);
+}
+@font-face {
+  font-family: "Dongle";
+  src: url(19d1ebf56b8a3ce35c14.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  margin: 2rem auto;
+  background-color: whitesmoke;
+  font-family: "DMSans", Tahoma, Geneva, Verdana, sans-serif;
+  width: 70rem;
+}
+
+#logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  align-content: flex-start;
+}
+
+#logo {
+  width: 10rem;
+}
+
+#logo-container > h1 {
+  font-family: "Dosis", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-left: 1.2rem;
+  font-size: 6rem;
+  background: #fcd41f;
+  background: linear-gradient(56deg, #fcd41f 0%, #ffbb1b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#input-field-container {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 20px;
+  padding: 2rem 0.3rem;
+}
+
+input {
+  padding: 1rem 0.3rem;
+  height: 5rem;
+  width: 62%;
+  background: linear-gradient(whitesmoke, whitesmoke) padding-box, linear-gradient(to right, #fcd41f, #ffbb1b) border-box;
+  border-radius: 50em;
+  border: 5px solid transparent;
+  transition: 0.8s ease-out;
+  /* GLOW */
+  box-shadow: 0px 0px 20px 0px rgba(255, 0, 0, 0);
+}
+
+input:focus {
+  border-width: 10px;
+  width: 65%;
+  box-shadow: 0px 0px 14px 0px #ffbb1b;
+  outline: none;
+  transition: 0.6s ease-out;
+}
+
+input::-moz-placeholder {
+  color: #bbbbbb;
+  font-family: DMSans;
+  text-align: center;
+  font-size: 1.25rem;
+  padding-left: 0rem;
+}
+
+input:-ms-input-placeholder {
+  color: #bbbbbb;
+  font-family: DMSans;
+  text-align: center;
+  font-size: 1.25rem;
+  padding-left: 0rem;
+}
+
+input::placeholder {
+  color: #bbbbbb;
+  font-family: DMSans;
+  text-align: center;
+  font-size: 1.25rem;
+  padding-left: 0rem;
+}
+
+input:hover {
+  box-shadow: 0px 0px 10px 0px #ffbb1b;
+}
+
+input {
+  color: black;
+  font-size: 1.25rem;
+  padding-left: 1.25rem;
+  font-family: DMSans;
+}
+
+.login-button,
+#submit-btn {
+  font-family: "Dongle", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 50em;
+  background: linear-gradient(to right, #fcd41f, #ffbb1b);
+  border: none;
+  font-size: 3.2rem;
+  color: whitesmoke;
+  width: 25%;
+  box-shadow: 0px 0px 14px 0px rgba(255, 187, 27, 0);
+  transition: 0.2s ease-out;
+}
+
+#submit-btn:hover {
+  box-shadow: 0px 0px 14px 0px #ffbb1b;
+  transition: 0.2s ease-out;
+}
+
+#submit-btn:active {
+  box-shadow: 0px 0px 40px 0px #ffbb1b;
+  transition: 0.2s ease-out;
+  transform: translateY(5px);
+}
+
+#btn-copy-url {
+  border: none;
+  width: 6rem;
+  font-size: 2rem;
+  margin: 0 2rem;
+  font-family: "Dongle";
+  background: linear-gradient(whitesmoke, whitesmoke) padding-box, linear-gradient(to right, #1fb6fc, #73d1b2) border-box;
+  border-radius: 1em;
+  width: 8rem;
+  border: 3px solid transparent;
+  box-shadow: 0px 0px 20px 0px rgba(93, 255, 247, 0);
+  transition: 0.7s ease;
+}
+
+#btn-copy-url:hover {
+  color: #3f3d41;
+  box-shadow: 0px 0px 20px 0px #5dfff7;
+  transition: 0.3s ease;
+}
+
+#btn-copy-url:active {
+  color: #3f3d41;
+  box-shadow: 0px 0px 20px 0px #5dfff7;
+  transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateY(5px);
+}
+
+#alert-box {
+  width: 60%;
+  margin: 1rem auto;
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 0.75rem;
+  color: #353535;
+  background: linear-gradient(whitesmoke, whitesmoke) padding-box, linear-gradient(69deg, #a5df92 0%, #6debc1 30%, #db6868 68%, #e89745 100%) border-box;
+  background-size: 500% 500%;
+  transition: 0.8s ease-in-out;
+  border-radius: 50em;
+  border: 4px solid transparent;
+}
+
+.success {
+  background-position: 0% 100% !important;
+}
+
+.failure {
+  background-position: 90% 100% !important;
+}
+
+#new-url-container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #242438;
+  margin-bottom: 3rem;
+}
+
+#new-url {
+  font-family: "DMSans";
+  font-size: 2.5rem;
+  text-decoration: none;
+  color: #2f2e33;
+  background: linear-gradient(whitesmoke, whitesmoke) padding-box, linear-gradient(to right, #7cc0c8, #93acdb) border-box;
+  border-bottom: 4px solid transparent;
+  transition: 0.4s ease;
+}
+
+#new-url:hover {
+  color: rgba(0, 0, 0, 0.431);
+  cursor: pointer;
+}
+
+#alert-container {
+  text-align: center;
+}
+
+.hider {
+  display: none !important;
+}
+
+/* ==== Log In ==== */
+.login-button-container {
+  margin: 1rem;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  outline: 2px dotted green;
+  width: 7rem;
+  height: 3rem;
+  display: flex;
+}
+
+.login-button {
+  font-size: 2rem;
+  width: 100%;
+  color: #ffc847;
+  border: 3px solid transparent;
+  background: linear-gradient(whitesmoke, whitesmoke) padding-box, linear-gradient(to right, #fcd41f, #ffbb1b) border-box;
+  transition: 0.5s;
+}
+
+.login-button:hover {
+  background: #ffd051;
+  color: white;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* ==== End Log In ==== */
+/* ==== Log In Modal ==== */
+.login-modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.096);
+}
+
+.modal-content-box {
+  width: 600px;
+  height: 400px;
+  background-color: whitesmoke;
+  border: 5px solid #ffbb1b;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top-row {
+  text-align: center;
+  height: 25%;
+  width: 100%;
+  background-color: blue;
+}
+
+.alternating-modal-content {
+  background-color: green;
+  height: 75%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-login-button,
+.modal-signup-button {
+  border-radius: 20px;
+  width: 30%;
+  height: 80%;
+  background-color: orange;
+}
+
+.modal-content-signup,
+.modal-content-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==== End Log In Modal ==== */
 
 /*# sourceMappingURL=main.css.map*/

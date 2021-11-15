@@ -105,7 +105,7 @@ input {
   padding-left: 1.25rem;
   font-family: DMSans;
 }
-
+.login-button,
 #submit-btn {
   font-family: 'Dongle', Tahoma, Geneva, Verdana, sans-serif;
   border-radius: 50em;
@@ -224,5 +224,99 @@ input {
 }
 
 .hider {
-  display: none;
+  display: none !important;
 }
+
+/* ==== Log In ==== */
+
+.login-button-container {
+  margin: 1rem;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  outline: 2px dotted green;
+  width: 7rem;
+  height: 3rem;
+  display: flex;
+}
+
+.login-button {
+  font-size: 2rem;
+  width: 100%;
+  color: rgb(255, 200, 71);
+  border: 3px solid transparent;
+  background: linear-gradient(whitesmoke, whitesmoke) padding-box,
+    linear-gradient(to right, rgba(252, 212, 31, 1), rgb(255, 187, 27))
+      border-box;
+  transition: 0.5s;
+}
+.login-button:hover {
+  background: rgb(255, 208, 81);
+  color: white;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+/* ==== End Log In ==== */
+
+/* ==== Log In Modal ==== */
+
+.login-modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.096);
+}
+
+.modal-content-box {
+  width: 600px;
+  height: 400px;
+  background-color: whitesmoke;
+  border: 5px solid rgb(255, 187, 27);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top-row {
+  text-align: center;
+  height: 25%;
+  width: 100%;
+  background-color: blue;
+}
+
+.alternating-modal-content {
+  background-color: green;
+  height: 75%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-login-button,
+.modal-signup-button {
+  border-radius: 20px;
+  width: 30%;
+  height: 80%;
+  background-color: orange;
+}
+
+.modal-content-signup,
+.modal-content-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==== End Log In Modal ==== */

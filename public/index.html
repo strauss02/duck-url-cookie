@@ -1,1 +1,72 @@
-<!doctype html><html><head><title>Duck URL</title><link rel="icon" type="image/png" href="e42de092fcc7f854caef.ico"/><script defer="defer" src="bundle.js"></script><link href="main.css" rel="stylesheet"></head><body><div id="logo-container"><img id="logo" src="b657126ab239424129b0.png" alt=""/><h1>Duck URL</h1></div><main><section><div id="input-field-container"><input id="url_input" name="url" placeholder="https://www.your-URL-here.org/"/> <button id="submit-btn" type="submit" value="POST URL">Quack!</button></div></section><section class="" id="new-url-container"><h3 id="sample-text" class="">Quack quack! copy and paste the URL you want to short.</h3><a id="new-url" class="hider" href="#" target="_blank">new url</a> <button id="btn-copy-url" class="hider">Copy</button></section><section class="hider" id="alert-container"><div id="alert-box" class="success">Alerts display here</div></section></main><footer></footer></body></html>
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Duck URL</title>
+    <link rel="icon" type="image/png" href="e42de092fcc7f854caef.ico" />
+  <script defer src="bundle.js"></script><link href="main.css" rel="stylesheet"></head>
+
+  <body>
+    <!-- Start Modal -->
+
+    <!-- first div is dark bg -->
+    <div class="login-modal-container">
+      <!-- this div is the modal box -->
+      <div class="modal-content-box">
+        <div class="top-row">
+          <button class="modal-login-button">Log In</button>
+          <button class="modal-signup-button">Sign Up</button>
+        </div>
+        <div class="alternating-modal-content">
+          <div class="hider modal-content-login">
+            Already an old Quacker? Welcome back!
+            <input id="signup-username" placeholder="username" type="text" />
+            <input id="signup-password" placeholder="password" type="text" />
+            <button class="login-user-button">Log In!</button>
+          </div>
+
+          <div class="modal-content-signup">
+            New to Duck URL? Come on in, create a new Quacky user!
+            <input id="signup-username" placeholder="username" type="text" />
+            <input id="signup-password" placeholder="password" type="text" />
+            <button class="create-user-button">Sign Up!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Modal -->
+    <div class="login-button-container">
+      <button class="login-button">Log In</button>
+    </div>
+
+    <div id="logo-container">
+      <img id="logo" src="b657126ab239424129b0.png" alt="" />
+      <h1>Duck URL</h1>
+    </div>
+    <main>
+      <section>
+        <div id="input-field-container">
+          <input
+            id="url_input"
+            type="text"
+            name="url"
+            placeholder="https://www.your-URL-here.org/"
+          />
+          <button id="submit-btn" type="submit" value="POST URL">Quack!</button>
+        </div>
+      </section>
+      <section class="" id="new-url-container">
+        <h3 id="sample-text" class="">
+          Quack quack! copy and paste the URL you want to short.
+        </h3>
+        <a id="new-url" class="hider" href="#" target="_blank">new url</a>
+        <button id="btn-copy-url" class="hider">Copy</button>
+      </section>
+      <section class="hider" id="alert-container">
+        <div id="alert-box" class="success">Alerts display here</div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
