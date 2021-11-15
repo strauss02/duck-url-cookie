@@ -12,6 +12,7 @@ const redirectRouter = require('./redirect-router')
 const shortifyRouter = require('./shortify-router')
 const newUserRouter = require('./new-user-router')
 const errorHandler = require('./error-handler')
+const loginRouter = require('./login-router')
 
 /** ***** General Middleware *********** */
 
@@ -27,6 +28,8 @@ app.use('/', redirectRouter)
 app.post('/', shortifyRouter)
 
 app.use('/new-user', newUserRouter)
+
+app.use('/login-user', loginRouter)
 
 /** ****** Error Handler ************ */
 

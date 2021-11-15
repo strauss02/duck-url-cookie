@@ -52,4 +52,14 @@ async function handleSignupClick() {
       Utility.displayAlert('User successfuly created!')
     })
 }
-function handleLoginClick() {}
+
+function handleLoginClick() {
+  const reqUsername = modalLoginUsernameInput.value
+  const reqPassword = modalLoginPasswordInput.value
+
+  axios
+    .post('/login-user', { username: reqUsername, password: reqPassword })
+    .then((res) => {
+      console.log(res)
+    })
+}

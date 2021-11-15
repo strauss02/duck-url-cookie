@@ -2281,7 +2281,16 @@ function _handleSignupClick() {
   return _handleSignupClick.apply(this, arguments);
 }
 
-function handleLoginClick() {}
+function handleLoginClick() {
+  var reqUsername = modalLoginUsernameInput.value;
+  var reqPassword = modalLoginPasswordInput.value;
+  axios__WEBPACK_IMPORTED_MODULE_2___default().post('/login-user', {
+    username: reqUsername,
+    password: reqPassword
+  }).then(function (res) {
+    console.log(res);
+  });
+}
 
 /***/ }),
 
