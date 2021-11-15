@@ -9,6 +9,7 @@ class Elements {
   static newUrlBox = document.getElementById('new-url')
   static logInButton = document.querySelector('.login-button')
   static LoginModal = document.querySelector('.login-modal-container')
+  static modalAlert = document.querySelector('.modal-alert-container')
 }
 
 console.log(

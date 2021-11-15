@@ -2195,6 +2195,8 @@ var Elements = function Elements() {
 
 (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(Elements, "LoginModal", document.querySelector('.login-modal-container'));
 
+(0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(Elements, "modalAlert", document.querySelector('.modal-alert-container'));
+
 console.log('hey this is from elments.js, here is an element', Elements.alertBox);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Elements);
 
@@ -2289,6 +2291,12 @@ function handleLoginClick() {
     password: reqPassword
   }).then(function (res) {
     console.log(res);
+    _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(LoginModal, false);
+    _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(_elements__WEBPACK_IMPORTED_MODULE_3__["default"].alertSection, true);
+    _utility__WEBPACK_IMPORTED_MODULE_4__["default"].displayAlert('Logged in! Welcome back!');
+  })["catch"](function (err) {
+    console.log("Wow! ".concat(err));
+    _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(_elements__WEBPACK_IMPORTED_MODULE_3__["default"].modalAlert, true);
   });
 }
 

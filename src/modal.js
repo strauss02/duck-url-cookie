@@ -61,5 +61,12 @@ function handleLoginClick() {
     .post('/login-user', { username: reqUsername, password: reqPassword })
     .then((res) => {
       console.log(res)
+      Utility.toggleVisibility(LoginModal, false)
+      Utility.toggleVisibility(Elements.alertSection, true)
+      Utility.displayAlert('Logged in! Welcome back!')
+    })
+    .catch((err) => {
+      console.log(`Wow! ${err}`)
+      Utility.toggleVisibility(Elements.modalAlert, true)
     })
 }
