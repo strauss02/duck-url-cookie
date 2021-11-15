@@ -2165,30 +2165,46 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utility */ "./src/utility.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utility */ "./src/utility.js");
+
 
 var displayModalLoginButton = document.querySelector('.modal-login-button');
 var displayModalSignupButton = document.querySelector('.modal-signup-button');
 var modalContentLogin = document.querySelector('.modal-content-login');
 var modalContentSignup = document.querySelector('.modal-content-signup');
-var modalLoginButton = document.querySelector('.modal-content-signup');
-var modalSignupButton = document.querySelector('.modal-content-signup');
+var modalLoginButton = document.querySelector('.login-user-button');
+var modalSignupButton = document.querySelector('.create-user-button');
+var modalLoginUsernameInput = document.querySelector('#login-username');
+var modalLoginPasswordInput = document.querySelector('#login-password');
+var modalSignupUsernameInput = document.querySelector('#signup-username');
+var modalSignupPasswordInput = document.querySelector('#signup-password');
+/* ========================== */
+
 displayModalLoginButton.addEventListener('click', handleModalDisplayLoginClick);
 displayModalSignupButton.addEventListener('click', handleModalDisplaySignupClick);
-modalLoginButton.addEventListener('click', handleSignupClick);
-modalSignupButton.addEventListener('click', handleLoginClick);
+modalLoginButton.addEventListener('click', handleLoginClick);
+modalSignupButton.addEventListener('click', handleSignupClick);
 
 function handleModalDisplayLoginClick() {
-  _utility__WEBPACK_IMPORTED_MODULE_0__["default"].toggleVisibility(modalContentLogin, true);
-  _utility__WEBPACK_IMPORTED_MODULE_0__["default"].toggleVisibility(modalContentSignup, false);
+  _utility__WEBPACK_IMPORTED_MODULE_1__["default"].toggleVisibility(modalContentLogin, true);
+  _utility__WEBPACK_IMPORTED_MODULE_1__["default"].toggleVisibility(modalContentSignup, false);
 }
 
 function handleModalDisplaySignupClick() {
-  _utility__WEBPACK_IMPORTED_MODULE_0__["default"].toggleVisibility(modalContentLogin, false);
-  _utility__WEBPACK_IMPORTED_MODULE_0__["default"].toggleVisibility(modalContentSignup, true);
+  _utility__WEBPACK_IMPORTED_MODULE_1__["default"].toggleVisibility(modalContentLogin, false);
+  _utility__WEBPACK_IMPORTED_MODULE_1__["default"].toggleVisibility(modalContentSignup, true);
 }
 
-function handleSignupClick() {}
+function handleSignupClick() {
+  var reqUsername = modalSignupUsernameInput.value;
+  var reqPassword = modalSignupPasswordInput.value;
+  axios__WEBPACK_IMPORTED_MODULE_0___default().post('/new-user', {
+    username: reqUsername,
+    password: reqPassword
+  });
+}
 
 function handleLoginClick() {}
 
