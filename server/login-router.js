@@ -20,19 +20,14 @@ router.post('/', (req, res) => {
         .status(401)
         .send(`couldn't find any user with matching credentials`)
     } else {
-      // Create Token
-      const token = generateToken(reqUsername)
+      // authentication successful
+      // const token = generateToken(reqUsername)
+      const accessToken = jwt.sign(reqUsername, process.env.ACCESS_TOKEN_SECRET)
       //
-      /*   WE STOPPED OVA HERE
-      SO... We got to the part where we generate a token and send it to the user. all before that is basically taken care of.
-      the problem is, we need to send something called refresh tokens and i dunno what the heck is that.
-      so we neeed to figure that out and continue from here.
-      generally whats left is generaing tokens, storing them at the user, and limiting usage through that token verification.
-      after that of course there's all the small cute stuff like verification and ux nuances.
-
-      */
-      //
-      return res.json(token)
+      // const refreshToken = jwt.sign(reqUsername, process.env.REFRESH_TOKEN_SECRET)
+      // refreshTokens.push(refreshToken)
+      // res.json({token: token, refreshToken: refreshToken})
+      return res.json({ accessToken: accessToken })
     }
   })
 })
