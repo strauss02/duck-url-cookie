@@ -15,7 +15,6 @@ const shortifyRouter = require('./shortify-router')
 const newUserRouter = require('./new-user-router')
 const errorHandler = require('./error-handler')
 const loginRouter = require('./login-router')
-
 /** ***** General Middleware *********** */
 
 app.use(cors())
