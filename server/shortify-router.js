@@ -1,13 +1,11 @@
 /* ============================== */
 
 const express = require('express')
-// const app = new express()
 const router = express.Router()
 const ApiError = require('./ApiError')
-const DBController = require('./DBController')
-
-const DB = new DBController('test')
-
+//
+const UrlEntry = require('./models/UrlEntry')
+//
 /* ==============================  
 
   This router is for processing POST requests.
@@ -20,12 +18,42 @@ const DB = new DBController('test')
 router.post('/', (req, res) => {
   const inputURL = req.body.userURL
 
-  const prevUrl = DB.getKeyByValue(inputURL)
-
-  if (prevUrl) {
-    res.send(prevUrl)
-    return
-  }
+  //
+  // const prevUrl = DB.getKeyByValue(inputURL)
+  UrlEntry.find({ originalUrl: inputURL })
+    .then((result) => {
+      if (result.length > 0) {
+        console.log('found prexisting hash!', result)
+        return res.send(result)
+      } else {
+        if (!isValidUrl(inputURL)) {
+          throw new ApiError(400, 'That URL is invalid.')
+        }
+        const hash = getrandom()
+        const urlEntry = new UrlEntry({ originalUrl: inputURL, hash: hash })
+        urlEntry
+          .save()
+          .then((result) => {
+            console.log('new URL stored!')
+            return res.send(hash)
+          })
+          .catch((err) =>
+            console.log(`Error while trying to save new URL. ${err}`)
+          )
+        res.sendStatus(500)
+      }
+    })
+    .catch((err) => {
+      console.log(
+        `Error while searching the DB for previously shortened URLs. ${err}`
+      )
+      res.sendStatus(500)
+    })
+  //
+  // if (prevUrl) {
+  //   res.send(prevUrl)
+  //   return
+  // }
 
   // ASSERT PROPER URL
   function isValidUrl(string) {
@@ -38,9 +66,9 @@ router.post('/', (req, res) => {
     return url.protocol === 'http:' || url.protocol === 'https:'
   }
 
-  if (!isValidUrl(inputURL)) {
-    throw new ApiError(400, 'That URL is invalid.')
-  }
+  // if (!isValidUrl(inputURL)) {
+  //   throw new ApiError(400, 'That URL is invalid.')
+  // }
 
   function getrandom() {
     const randomString =
@@ -48,11 +76,10 @@ router.post('/', (req, res) => {
       Math.random().toString(32).substring(2, 5)
     return randomString
   }
-  const randomURL = getrandom()
 
-  DB.store(randomURL, inputURL)
+  // DB.store(randomURL, inputURL)
 
-  res.send(randomURL)
+  // res.send(randomURL)
 })
 
 /* ============================== */

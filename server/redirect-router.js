@@ -3,25 +3,24 @@
 // const app = new express()
 const express = require('express')
 const router = express.Router()
-const urls = require('./urls.json')
-
+// const urls = require('./urls.json')
+const UrlEntry = require('./models/UrlEntry')
 /* ============================== */
 
 router.get('/*', (req, res) => {
   const hash = req.url.substring(1)
-  // check hash existence in db
-  const entries = Object.entries(urls)
-  // TODO: replace check with simple key check
-  console.log('hash is: ', hash)
-  for (const entry of entries) {
-    if (entry[0] === hash) {
-      console.log('hash found! ', entry[0])
-      console.log(entry[1])
-      res.redirect(entry[1])
-      return
-    }
-  }
-  res.send('no short url found! sorry bud')
+  UrlEntry.find({ hash: hash })
+    .then((entries) => {
+      if (entries.length < 1) {
+        return res.status(404).send('No short url found! Sorry bud')
+      } else {
+        return res.redirect(entries.originalUrl)
+      }
+    })
+    .catch((err) => {
+      console.log(`Error while searching the DB for a hash. ${err}`)
+      return res.sendStatus(500)
+    })
 })
 
 module.exports = router
