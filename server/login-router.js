@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
         .status(401)
         .send(`couldn't find any user with matching credentials`)
     } else {
-      // authentication successful
+      // authenticati on successful
       // const token = generateToken(reqUsername)
       const accessToken = jwt.sign(reqUsername, process.env.ACCESS_TOKEN_SECRET)
       //
