@@ -26,10 +26,20 @@ async function handleSubmit(e) {
     const inputURL = inputField.value
     assertUrlFilled(inputURL)
     console.log(inputURL)
-    const newURL = await axios.post(`/`, { userURL: inputURL }).then((res) => {
-      console.log(res.data)
-      return res.data
-    })
+    const newURL = await axios
+      .post(
+        `/`,
+        { userURL: inputURL },
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data)
+        return res.data
+      })
 
     // REPLACE BEFORE DEPLOYMENT
     newUrlBox.innerText = `${baseURL}/${newURL}`

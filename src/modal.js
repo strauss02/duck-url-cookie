@@ -58,12 +58,14 @@ function handleLoginClick() {
   const reqPassword = modalLoginPasswordInput.value
 
   axios
-    .post('/login-user', { username: reqUsername, password: reqPassword })
+    .post('/user/login', { username: reqUsername, password: reqPassword })
     .then((res) => {
       console.log(res)
       Utility.toggleVisibility(LoginModal, false)
       Utility.toggleVisibility(Elements.alertSection, true)
       Utility.displayAlert('Logged in! Welcome back!')
+      localStorage.setItem('accessToken', res.data.accessToken)
+      localStorage.setItem('refreshToken', res.data.refreshToken)
     })
     .catch((err) => {
       console.log(`Wow! ${err}`)

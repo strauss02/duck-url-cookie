@@ -52,7 +52,9 @@ app.use('/user', userRouter)
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers.authorization
-  const token = authHeader && authHeader.split(' ')[1]
+  console.log(`incoming request headers: ${req.headers.authorization}`)
+  const token = authHeader.split(' ')[1]
+  console.log(`Attempted authentication with token ${token}`)
   if (token == null) return res.sendStatus(401)
 
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {

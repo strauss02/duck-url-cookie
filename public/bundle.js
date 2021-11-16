@@ -2286,7 +2286,7 @@ function _handleSignupClick() {
 function handleLoginClick() {
   var reqUsername = modalLoginUsernameInput.value;
   var reqPassword = modalLoginPasswordInput.value;
-  axios__WEBPACK_IMPORTED_MODULE_2___default().post('/login-user', {
+  axios__WEBPACK_IMPORTED_MODULE_2___default().post('/user/login', {
     username: reqUsername,
     password: reqPassword
   }).then(function (res) {
@@ -2294,6 +2294,8 @@ function handleLoginClick() {
     _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(LoginModal, false);
     _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(_elements__WEBPACK_IMPORTED_MODULE_3__["default"].alertSection, true);
     _utility__WEBPACK_IMPORTED_MODULE_4__["default"].displayAlert('Logged in! Welcome back!');
+    localStorage.setItem('accessToken', res.data.accessToken);
+    localStorage.setItem('refreshToken', res.data.refreshToken);
   })["catch"](function (err) {
     console.log("Wow! ".concat(err));
     _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(_elements__WEBPACK_IMPORTED_MODULE_3__["default"].modalAlert, true);
@@ -3389,6 +3391,10 @@ function _handleSubmit() {
             _context.next = 6;
             return axios__WEBPACK_IMPORTED_MODULE_3___default().post("/", {
               userURL: inputURL
+            }, {
+              headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+              }
             }).then(function (res) {
               console.log(res.data);
               return res.data;

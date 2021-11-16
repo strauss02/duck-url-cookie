@@ -37,10 +37,10 @@ router.post('/', (req, res) => {
             console.log('new URL stored!')
             return res.send(hash)
           })
-          .catch((err) =>
+          .catch((err) => {
             console.log(`Error while trying to save new URL. ${err}`)
-          )
-        res.sendStatus(500)
+            res.sendStatus(500)
+          })
       }
     })
     .catch((err) => {
