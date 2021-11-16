@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 
-const url = process.env.MONGODB_URI
+// const url = process.env.MONGODB_URI
 
-console.log(`connecting to ${url}`)
+// console.log(`connecting to ${url}`)
 
-mongoose
-  .connect(url)
-  .then((res) => {
-    console.log('connected to DuckDB')
-  })
-  .catch((_err) => {
-    console.log('coneection failed to DuckDB')
-  })
+// mongoose
+//   .connect(url)
+//   .then((res) => {
+//     console.log('connected to DuckDB')
+//   })
+//   .catch((_err) => {
+//     console.log('coneection failed to DuckDB')
+//   })
 
 const tokenScheme = new mongoose.Schema({
   token: String,

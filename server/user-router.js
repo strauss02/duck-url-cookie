@@ -1,14 +1,15 @@
-require('dotenv').config()
+/* ====== Import Tools ====== */
 
+require('dotenv').config()
 const jwt = require('jsonwebtoken')
 const express = require('express')
 const router = express.Router()
 const User = require('./models/user')
 const RefreshToken = require('./models/refreshToken')
 
-const refreshTokens = []
+/* ====== Routing ====== */
 
-router.post('/', (req, res) => {
+router.post('/login', (req, res) => {
   const reqUsername = req.body.username
   const reqPassword = req.body.password
 

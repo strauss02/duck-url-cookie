@@ -7,6 +7,21 @@ const express = require('express')
 const app = new express()
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
+const mongoose = require('mongoose')
+/** ****** Connect to Mongoose ******* */
+
+const url = process.env.MONGODB_URI
+
+console.log(`connecting to ${url}`)
+
+mongoose
+  .connect(url)
+  .then((res) => {
+    console.log('connected to DuckDB')
+  })
+  .catch((_err) => {
+    console.log('coneection failed to DuckDB')
+  })
 
 /** ****** Import router modules ******* */
 
@@ -14,7 +29,7 @@ const redirectRouter = require('./redirect-router')
 const shortifyRouter = require('./shortify-router')
 const newUserRouter = require('./new-user-router')
 const errorHandler = require('./error-handler')
-const loginRouter = require('./login-router')
+const userRouter = require('./user-router')
 /** ***** General Middleware *********** */
 
 app.use(cors())
@@ -31,7 +46,7 @@ app.post('/', authenticateToken, shortifyRouter)
 
 app.use('/new-user', newUserRouter)
 
-app.use('/login-user', loginRouter)
+app.use('/user', userRouter)
 
 /** ****** Authenticate Token ************ */
 
