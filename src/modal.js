@@ -30,6 +30,8 @@ displayModalSignupButton.addEventListener(
 modalLoginButton.addEventListener('click', handleLoginClick)
 modalSignupButton.addEventListener('click', handleSignupClick)
 
+Elements.exitButton.addEventListener('click', handleModalExit)
+
 function handleModalDisplayLoginClick() {
   Utility.toggleVisibility(modalContentLogin, true)
   Utility.toggleVisibility(modalContentSignup, false)
@@ -51,6 +53,10 @@ async function handleSignupClick() {
       Utility.toggleVisibility(Elements.alertSection, true)
       Utility.displayAlert('User successfuly created!')
     })
+}
+
+function handleModalExit() {
+  Utility.toggleVisibility(LoginModal, false)
 }
 
 function handleLoginClick() {

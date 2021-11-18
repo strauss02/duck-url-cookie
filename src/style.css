@@ -278,24 +278,31 @@ input {
 .modal-content-box {
   width: 600px;
   height: 400px;
-  background-color: whitesmoke;
+  background-color: rgba(238, 238, 238, 0.904);
   border: 5px solid rgb(255, 187, 27);
-  border-radius: 20px;
+  border-radius: 70px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 
+.exit-button {
+  border: none;
+  cursor: pointer;
+  margin-left: 80%;
+  margin-top: 0.6rem;
+}
+
 .top-row {
-  text-align: center;
-  height: 25%;
+  display: flex;
+  justify-content: space-around;
+  height: 15%;
+  margin-top: 1rem;
   width: 100%;
-  background-color: blue;
 }
 
 .alternating-modal-content {
-  background-color: green;
   height: 75%;
   width: 100%;
   display: flex;
@@ -308,7 +315,22 @@ input {
   border-radius: 20px;
   width: 30%;
   height: 80%;
-  background-color: orange;
+  line-height: 80%;
+  color: orange;
+  font-family: 'Dongle';
+  font-size: 2rem;
+  border: 3px solid orange;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.modal-login-button:hover,
+.modal-signup-button:hover {
+  background-color: rgba(255, 239, 213, 0.726);
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-size: 2.5rem;
+
+  color: orange;
+  border: 3px solid orange;
 }
 
 .modal-content-signup,
@@ -317,6 +339,25 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#signup-username,
+#signup-password,
+#login-password,
+#login-username {
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+.create-user-button,
+.login-user-button {
+  border-radius: 20px;
+  width: 30%;
+  height: 80%;
+  line-height: 80%;
+  color: orange;
+  font-family: 'Dongle';
+  font-size: 2rem;
+  border: 3px solid orange;
 }
 
 /* ==== End Log In Modal ==== */

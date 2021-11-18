@@ -10,6 +10,7 @@ class Elements {
   static logInButton = document.querySelector('.login-button')
   static LoginModal = document.querySelector('.login-modal-container')
   static modalAlert = document.querySelector('.modal-alert-container')
+  static exitButton = document.querySelector('.exit-button')
 }
 
 console.log(

@@ -2197,6 +2197,8 @@ var Elements = function Elements() {
 
 (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(Elements, "modalAlert", document.querySelector('.modal-alert-container'));
 
+(0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(Elements, "exitButton", document.querySelector('.exit-button'));
+
 console.log('hey this is from elments.js, here is an element', Elements.alertBox);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Elements);
 
@@ -2239,6 +2241,7 @@ displayModalLoginButton.addEventListener('click', handleModalDisplayLoginClick);
 displayModalSignupButton.addEventListener('click', handleModalDisplaySignupClick);
 modalLoginButton.addEventListener('click', handleLoginClick);
 modalSignupButton.addEventListener('click', handleSignupClick);
+_elements__WEBPACK_IMPORTED_MODULE_3__["default"].exitButton.addEventListener('click', handleModalExit);
 
 function handleModalDisplayLoginClick() {
   _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(modalContentLogin, true);
@@ -2281,6 +2284,10 @@ function _handleSignupClick() {
     }, _callee);
   }));
   return _handleSignupClick.apply(this, arguments);
+}
+
+function handleModalExit() {
+  _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(LoginModal, false);
 }
 
 function handleLoginClick() {
