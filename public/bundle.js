@@ -2235,6 +2235,8 @@ var modalLoginUsernameInput = document.querySelector('#login-username');
 var modalLoginPasswordInput = document.querySelector('#login-password');
 var modalSignupUsernameInput = document.querySelector('#signup-username');
 var modalSignupPasswordInput = document.querySelector('#signup-password');
+modalLoginPasswordInput.type = 'password';
+modalSignupPasswordInput.type = 'password';
 /* ========================== */
 
 displayModalLoginButton.addEventListener('click', handleModalDisplayLoginClick);
@@ -2266,7 +2268,18 @@ function _handleSignupClick() {
           case 0:
             reqUsername = modalSignupUsernameInput.value;
             reqPassword = modalSignupPasswordInput.value;
-            _context.next = 4;
+
+            if (!(reqUsername === '' || reqPassword === '')) {
+              _context.next = 6;
+              break;
+            }
+
+            _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(_elements__WEBPACK_IMPORTED_MODULE_3__["default"].modalAlert, true);
+            _elements__WEBPACK_IMPORTED_MODULE_3__["default"].modalAlert.innerText = 'Please fill the missing data before clicking sign up';
+            return _context.abrupt("return");
+
+          case 6:
+            _context.next = 8;
             return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/new-user', {
               username: reqUsername,
               password: reqPassword
@@ -2274,9 +2287,13 @@ function _handleSignupClick() {
               _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(LoginModal, false);
               _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(_elements__WEBPACK_IMPORTED_MODULE_3__["default"].alertSection, true);
               _utility__WEBPACK_IMPORTED_MODULE_4__["default"].displayAlert('User successfuly created!');
+            })["catch"](function (err) {
+              _utility__WEBPACK_IMPORTED_MODULE_4__["default"].toggleVisibility(_elements__WEBPACK_IMPORTED_MODULE_3__["default"].modalAlert, true);
+              _elements__WEBPACK_IMPORTED_MODULE_3__["default"].modalAlert.innerText = err.response.data;
+              console.log(err);
             });
 
-          case 4:
+          case 8:
           case "end":
             return _context.stop();
         }

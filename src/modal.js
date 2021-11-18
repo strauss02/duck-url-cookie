@@ -19,6 +19,9 @@ const modalLoginPasswordInput = document.querySelector('#login-password')
 const modalSignupUsernameInput = document.querySelector('#signup-username')
 const modalSignupPasswordInput = document.querySelector('#signup-password')
 
+modalLoginPasswordInput.type = 'password'
+modalSignupPasswordInput.type = 'password'
+
 /* ========================== */
 
 displayModalLoginButton.addEventListener('click', handleModalDisplayLoginClick)
@@ -45,6 +48,12 @@ function handleModalDisplaySignupClick() {
 async function handleSignupClick() {
   const reqUsername = modalSignupUsernameInput.value
   const reqPassword = modalSignupPasswordInput.value
+  if (reqUsername === '' || reqPassword === '') {
+    Utility.toggleVisibility(Elements.modalAlert, true)
+    Elements.modalAlert.innerText =
+      'Please fill the missing data before clicking sign up'
+    return
+  }
 
   await axios
     .post('/new-user', { username: reqUsername, password: reqPassword })
@@ -52,6 +61,11 @@ async function handleSignupClick() {
       Utility.toggleVisibility(LoginModal, false)
       Utility.toggleVisibility(Elements.alertSection, true)
       Utility.displayAlert('User successfuly created!')
+    })
+    .catch((err) => {
+      Utility.toggleVisibility(Elements.modalAlert, true)
+      Elements.modalAlert.innerText = err.response.data
+      console.log(err)
     })
 }
 

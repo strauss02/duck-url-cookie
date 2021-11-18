@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
     .then((result) => {
       if (result.length > 0) {
         console.log('found prexisting hash!', result)
-        return res.send(result)
+        return res.send(result[0].hash)
       } else {
         if (!isValidUrl(inputURL)) {
           throw new ApiError(400, 'That URL is invalid.')
