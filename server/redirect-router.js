@@ -9,12 +9,13 @@ const UrlEntry = require('./models/UrlEntry')
 
 router.get('/*', (req, res) => {
   const hash = req.url.substring(1)
+  console.log(hash)
   UrlEntry.find({ hash: hash })
     .then((entries) => {
       if (entries.length < 1) {
         return res.status(404).send('No short url found! Sorry bud')
       } else {
-        return res.redirect(entries.originalUrl)
+        return res.redirect(entries[0].originalUrl)
       }
     })
     .catch((err) => {
